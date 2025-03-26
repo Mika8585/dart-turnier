@@ -1,0 +1,18 @@
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
+
+# Temporäre Dateien
+*.log
+*.tmp
+.cache
+
+# IDE-Dateien
+.vscode/
+.idea/
+*.sublime-*
+.vs/
+
+# Node.js (falls du später npm verwendest)
+node_modules/
+package-lock.json 
