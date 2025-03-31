@@ -15,4 +15,9 @@ Thumbs.db
 
 # Node.js (falls du später npm verwendest)
 node_modules/
-package-lock.json 
+package-lock.json
+
+# Archiv-Dateien
+*.zip
+*.rar
+*.7z 

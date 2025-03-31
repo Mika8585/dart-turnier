@@ -11,6 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const winnerOverlay = document.getElementById('winnerOverlay');
     const winnerNameElement = document.getElementById('winnerName');
     const closeWinnerOverlayBtn = document.getElementById('closeWinnerOverlay');
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Theme-Funktionalität
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        // Wenn das gespeicherte Theme "dark-theme" ist, setze den Toggle-Schalter auf "checked"
+        if (currentTheme === 'dark-theme') {
+            themeToggle.checked = true;
+        }
+    }
+
+    themeToggle.addEventListener('change', function() {
+        if (this.checked) {
+            document.body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark-theme');
+        } else {
+            document.body.classList.remove('dark-theme');
+            localStorage.setItem('theme', '');
+        }
+    });
 
     // Globale Variablen
     let players = [];

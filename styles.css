@@ -1,3 +1,47 @@
+:root {
+    --bg-color: rgba(248, 249, 250, 0.9);
+    --text-color: #333;
+    --heading-color: #2c3e50;
+    --subheading-color: #3498db;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border-color: #ddd;
+    --button-bg: #3498db;
+    --button-hover: #2980b9;
+    --reset-button-bg: #e74c3c;
+    --reset-button-hover: #c0392b;
+    --player-bg: #f5f5f5;
+    --player-hover: #e9e9e9;
+    --player-winner-bg: #d4edda;
+    --player-winner-text: #155724;
+    --free-pass-bg: #e8f4fd;
+    --bye-bg: #f8f9fa;
+    --bye-text: #999;
+    --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --connector-color: #3498db;
+}
+
+.dark-theme {
+    --bg-color: rgba(26, 26, 46, 0.9);
+    --text-color: #e1e1e1;
+    --heading-color: #61dafb;
+    --subheading-color: #3498db;
+    --card-bg: rgba(22, 33, 62, 0.95);
+    --border-color: #2a2a4a;
+    --button-bg: #3498db;
+    --button-hover: #2471a3;
+    --reset-button-bg: #e74c3c;
+    --reset-button-hover: #c0392b;
+    --player-bg: #2a2a4a;
+    --player-hover: #3a3a5a;
+    --player-winner-bg: #2d4d46;
+    --player-winner-text: #4ad295;
+    --free-pass-bg: #2a4562;
+    --bye-bg: #1a1a2e;
+    --bye-text: #777;
+    --card-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    --connector-color: #3498db;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,25 +51,47 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    background-image: url('Darts Hintergrund.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: -1;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #2c3e50;
+    color: var(--heading-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
     margin-bottom: 20px;
-    color: #3498db;
+    color: var(--subheading-color);
 }
 
 .form-group {
@@ -42,13 +108,15 @@ input[type="number"],
 input[type="text"] {
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 16px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }
 
 button {
-    background-color: #3498db;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -60,7 +128,7 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: var(--button-hover);
 }
 
 .player-inputs {
@@ -94,12 +162,12 @@ button:hover {
 }
 
 .match {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
     position: relative;
 }
 
@@ -110,7 +178,7 @@ button:hover {
     right: -20px;
     width: 20px;
     height: 2px;
-    background-color: #3498db;
+    background-color: var(--connector-color);
     display: block;
 }
 
@@ -132,55 +200,57 @@ button:hover {
 .connector-vertical {
     position: absolute;
     width: 2px;
-    background-color: #3498db;
+    background-color: var(--connector-color);
     right: -11px;
     z-index: 0;
 }
 
 .bye {
-    background-color: #f8f9fa;
-    color: #999;
+    background-color: var(--bye-bg);
+    color: var(--bye-text);
     font-style: italic;
 }
 
 .player.free-pass {
-    background-color: #e8f4fd;
+    background-color: var(--free-pass-bg);
     font-style: italic;
 }
 
 .player {
     padding: 8px;
     margin: 5px 0;
-    background-color: #f5f5f5;
+    background-color: var(--player-bg);
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .player:hover {
-    background-color: #e9e9e9;
+    background-color: var(--player-hover);
 }
 
 .player.winner {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: var(--player-winner-bg);
+    color: var(--player-winner-text);
     font-weight: bold;
 }
 
 .setup-section, .tournament-section {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #resetTournament {
-    background-color: #e74c3c;
+    background-color: var(--reset-button-bg);
 }
 
 #resetTournament:hover {
-    background-color: #c0392b;
+    background-color: var(--reset-button-hover);
 }
 
 /* Gewinner-Animation Styles */
@@ -403,4 +473,80 @@ button:hover {
     25% { transform: translateY(-15px) rotate(5deg); }
     50% { transform: translateY(0) rotate(0deg); }
     75% { transform: translateY(15px) rotate(-5deg); }
+}
+
+/* Theme-Toggle Schalter */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-label {
+    margin-right: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3498db;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider:after {
+    content: '☀️';
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-size: 14px;
+}
+
+input:checked + .slider:after {
+    content: '🌙';
+    position: absolute;
+    right: 10px;
+    left: auto;
 } 
