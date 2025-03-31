@@ -53,7 +53,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    background-image: url('Darts Hintergrund.jpg');
+    background-image: url('Darts_Hintergrund.jpg?v=1');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
